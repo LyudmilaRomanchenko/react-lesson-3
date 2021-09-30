@@ -34,8 +34,9 @@ class DropDown extends React.Component {
           type="button"
           className="Dropdown__toggle"
           onClick={this.toggle}
+          // onMouseOver = {console.log('hhhhhhh')}
         >
-          Показать
+          {this.state.visible ? "Скрыть" : "Показать"}
         </button>
 
         {visible && <div className="Dropdown__menu">Выпадающее меню</div>}

@@ -7,6 +7,7 @@ import DropDown from "./components/DropDown/DropDown";
 import ColorPicker from "./components/ColorPicker/ColorPicker";
 import Input from "./components/Input/Input";
 import React from "react";
+import TodoList from "./components/TodoList/TodoList";
 
 const colorPickerOptions = [
   { label: "red", color: "#F44336" },
@@ -19,7 +20,11 @@ const colorPickerOptions = [
 
 class App extends React.Component {
   state = {
-    todos: "",
+    todos: [
+      { id: 1, text: "Посмотреть", complited: false },
+      { id: 2, text: "Выучить", complited: false },
+      { id: 3, text: "Запомнить", complited: false },
+    ],
   };
 
   renderForm = (data) => {
@@ -27,12 +32,16 @@ class App extends React.Component {
   };
 
   render() {
+    const todos = this.state;
+    console.log(todos);
     return (
       <div className="App">
         <Counter initualValue={100} />
         <DropDown />
         <ColorPicker options={colorPickerOptions} />
         <Input onSubmit={this.renderForm} />
+
+        <TodoList todos={todos} />
       </div>
     );
   }
